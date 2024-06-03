@@ -13,18 +13,18 @@ class ProvinceCard extends StatelessWidget {
       aspectRatio: 16 / 9,
       child: Stack(
         children: [
-          // Container(
-          //   decoration: BoxDecoration(
-          //       borderRadius: BorderRadius.circular(28),
-          //       boxShadow: [
-          //         BoxShadow(
-          //           color: Colors.black.withOpacity(0.2),
-          //           spreadRadius: 0,
-          //           blurRadius: 8,
-          //           offset: const Offset(0, 8),
-          //         ),
-          //       ]),
-          // ),
+          Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(28),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    spreadRadius: 0,
+                    blurRadius: 8,
+                    offset: const Offset(0, 8),
+                  ),
+                ]),
+          ),
           ClipRRect(
             borderRadius: BorderRadius.circular(28),
             child: Stack(

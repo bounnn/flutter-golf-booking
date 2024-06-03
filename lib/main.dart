@@ -11,70 +11,149 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 200,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: const <Widget>[
-                      ProvinceCard(
-                        imagePath: 'assets/Vientiane.png',
-                        provinceName: 'Vientiane',
+            child: ListView(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
+              child: SizedBox(
+                height: 50,
+                child: Row(
+                  children: [
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromRGBO(33, 158, 188, 1),
                       ),
-                      SizedBox(width: 10),
-                      ProvinceCard(
-                        imagePath: 'assets/Champasak.jpg',
-                        provinceName: 'Champasak',
+                      onPressed: () {},
+                      child: const Row(
+                        children: [
+                          Icon(
+                            Icons.history,
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            "Check my booking status",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
                       ),
-                      SizedBox(width: 10),
-                      ProvinceCard(
-                        imagePath: 'assets/Sayaboury.jpg',
-                        provinceName: 'Sayaboury',
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: SizedBox(
+                height: 240,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 20, horizontal: 5),
+                      child: const ProvinceCard(
+                        imagePath: "assets/Vientiane.png",
+                        provinceName: "Vientiane",
                       ),
-                    ],
+                    ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 20, horizontal: 5),
+                      child: const ProvinceCard(
+                        imagePath: "assets/Champasak.jpg",
+                        provinceName: "Champasak",
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 20, horizontal: 5),
+                      child: const ProvinceCard(
+                        imagePath: "assets/Sayaboury.jpg",
+                        provinceName: "Sayaboury",
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              child: SizedBox(
+                height: 65,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    suffixIcon: Ink(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: IconButton.filledTonal(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.search,
+                            color: Colors.white,
+                          ),
+                          style: IconButton.styleFrom(
+                            backgroundColor:
+                                const Color.fromRGBO(33, 158, 188, 1),
+                          ),
+                        ),
+                      ),
+                    ),
+                    hintText: 'Search golf course',
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 15),
+                    fillColor: Colors.white,
+                    focusedBorder: const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      ),
+                      borderSide: BorderSide(
+                          color: Color.fromRGBO(33, 158, 188, 1), width: 2),
+                    ),
+                    enabledBorder: const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      ),
+                      borderSide: BorderSide(color: Colors.black12, width: 1),
+                    ),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
-                SearchAnchor(
-                  builder: (context, controller) {
-                    return SearchBar(
-                      backgroundColor: const MaterialStatePropertyAll(
-                          Color.fromRGBO(255, 255, 255, 1.0)),
-                      controller: controller,
-                      padding: const MaterialStatePropertyAll<EdgeInsets>(
-                          EdgeInsets.symmetric(horizontal: 16)),
-                      trailing: <Widget>[
-                        IconButton(
-                          onPressed: () {
-                            controller.clear();
-                          },
-                          icon: const Icon(Icons.search),
-                        ),
-                      ],
-                    );
-                  },
-                  suggestionsBuilder:
-                      (BuildContext context, SearchController controller) {
-                    return List<ListTile>.generate(5, (index) {
-                      final String text = 'item ${index + 1}';
-                      return ListTile(
-                        title: Text(text),
-                        onTap: () {
-                          controller.text = text;
-                        },
-                      );
-                    });
-                  },
-                )
-              ],
+              ),
             ),
-          ),
-        ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              child: SizedBox(
+                height: 18,
+                child: Text(
+                  "Recommendation",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              child: Container(
+                height: 180,
+                color: Colors.amber,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              child: Container(
+                height: 180,
+                color: Colors.amber,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              child: Container(
+                height: 180,
+                color: Colors.amber,
+              ),
+            ),
+          ],
+        )),
       ),
     );
   }
